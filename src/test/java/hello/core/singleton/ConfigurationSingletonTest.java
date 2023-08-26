@@ -3,6 +3,7 @@ package hello.core.singleton;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import hello.core.AppConfig;
@@ -10,7 +11,7 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemberServiceImpl;
 import hello.core.order.OrderServiceImpl;
 
-public class ConfigurationSingleton {
+public class ConfigurationSingletonTest {
 
 	@Test
 	void configurationTest() {
@@ -30,5 +31,14 @@ public class ConfigurationSingleton {
 
 		assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
 		assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
+	}
+
+	@Test
+	void configurationDeep() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+		AppConfig bean = ac.getBean(AppConfig.class);
+
+		// bean: class hello.core.AppConfig$$EnhancerBySpringCGLIB$$bb673b42
+		System.out.println("bean: " + bean.getClass());
 	}
 }
