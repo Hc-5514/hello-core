@@ -3,7 +3,6 @@ package hello.core.beanfind;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -19,28 +18,28 @@ public class ApplicationContextBasicFindTest {
 
 	@Test
 	@DisplayName("빈 이름으로 조회")
-	void findBeanByName(){
+	void findBeanByName() {
 		MemberService memberService = ac.getBean("memberService", MemberService.class);
 		assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
 	}
 
 	@Test
 	@DisplayName("이름 없이 타입으로만 조회")
-	void findBeanByType(){
+	void findBeanByType() {
 		MemberService memberService = ac.getBean(MemberService.class);
 		assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
 	}
 
 	@Test
 	@DisplayName("구현체 타입으로 조회")
-	void findBeanByName2(){
+	void findBeanByName2() {
 		MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
 		assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
 	}
 
 	@Test
 	@DisplayName("빈 이름으로 조회 x")
-	void findBeanByNameX(){
+	void findBeanByNameX() {
 		// ac.getBean("xxxxx", MemberService.class);
 		assertThrows(NoSuchBeanDefinitionException.class,
 			() -> ac.getBean("xxxxx", MemberService.class));
