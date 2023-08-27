@@ -1,14 +1,13 @@
 package hello.core.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
-@Component
+// @Component
 // @RequiredArgsConstructor // final 로 선언된 필드를 매개변수로 받는 생성자를 만들어준다.
 public class OrderServiceImpl implements OrderService {
 

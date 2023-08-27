@@ -8,7 +8,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import hello.core.AutoAppConfig;
+import hello.core.DiscountPolicyConfig;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
@@ -17,7 +17,7 @@ public class AllBeanTest {
 
 	@Test
 	void findAllBean() {
-		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class,
+		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(DiscountPolicyConfig.class,
 			DiscountService.class);
 
 		DiscountService discountService = ac.getBean(DiscountService.class);
